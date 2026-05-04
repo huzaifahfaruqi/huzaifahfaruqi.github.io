@@ -28,6 +28,7 @@
             glass: 'rgba(255,255,255,0.06)',
             neon: '#2dd4bf',
             royal: '#3b82f6',
+            snova: '#a855f7',
           },
           boxShadow: {
             glow: '0 0 0 1px rgba(45,212,191,0.25), 0 0 40px rgba(59,130,246,0.2)',
@@ -56,7 +57,7 @@
       box-shadow: 0 0 0 1px rgba(45,212,191,0.28), 0 0 32px rgba(59,130,246,0.24);
     }
     .accent-text {
-      background: linear-gradient(90deg, #2dd4bf, #3b82f6);
+      background: linear-gradient(90deg, #2dd4bf, #a855f7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -66,6 +67,32 @@
     }
     .hero-profile-wrap:hover {
       transform: translateY(-4px) scale(1.01);
+    }
+    .glassy-btn {
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .glassy-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -140%;
+      width: 120%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.26) 50%, transparent 80%);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+    .glassy-btn:hover::before {
+      left: 120%;
+    }
+    .glassy-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 0 1px rgba(45,212,191,0.3), 0 10px 30px rgba(59,130,246,0.26);
+      border-color: rgba(45,212,191,0.38);
     }
   </style>
 </head>
@@ -86,17 +113,17 @@
     <section id="hero" class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <p class="text-neon font-semibold mb-3">SaaS Developer | Fintech Engineer | Digital Entrepreneur</p>
-        <h1 class="font-display text-4xl md:text-6xl leading-tight mb-6">Huzaifah Faruqi: <span class="accent-text">Architecting Automation & Fintech Solutions</span></h1>
+        <h1 class="font-display text-4xl md:text-6xl leading-tight mb-6">Huzaifah Faruqi:<br><span class="accent-text">Architecting<br>Automation &<br>Fintech Solutions</span></h1>
         <p class="text-slate-300 mb-8">Building scalable SaaS products, growth ecosystems, and algorithmic trading systems for modern businesses in Malaysia.</p>
         <div class="flex flex-wrap gap-4">
-          <a href="https://wa.me/60172502027" class="px-6 py-3 rounded-full bg-gradient-to-r from-neon to-royal text-black font-bold">Start a Project</a>
-          <a href="#projects" class="px-6 py-3 rounded-full border border-neon/40 text-neon">View Portfolio</a>
+          <a href="https://wa.me/60172502027" class="glassy-btn px-6 py-3 rounded-full bg-gradient-to-r from-neon/90 to-royal/90 text-black font-bold">Start a Project</a>
+          <a href="#projects" class="glassy-btn px-6 py-3 rounded-full bg-white/5 text-neon">View Portfolio</a>
         </div>
       </div>
-      <div class="relative hero-profile-wrap flex items-center justify-center min-h-[460px] md:min-h-[620px]">
+      <div class="relative hero-profile-wrap flex items-center justify-center min-h-[500px] md:min-h-[700px]">
         <div class="absolute w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full bg-neon/20 blur-3xl pointer-events-none"></div>
         <div class="absolute right-8 top-20 w-64 h-64 md:w-80 md:h-80 rounded-full bg-royal/18 blur-3xl pointer-events-none"></div>
-        <img src="profile.png" alt="Huzaifah Faruqi professional headshot" class="relative w-full max-w-xl md:max-w-2xl h-[460px] md:h-[640px] object-contain object-center opacity-100 drop-shadow-[0_30px_58px_rgba(45,212,191,0.26)] saturate-105 contrast-105" />
+        <img src="profile.png" alt="Huzaifah Faruqi professional headshot" class="relative w-full max-w-2xl md:max-w-3xl h-[500px] md:h-[720px] object-contain object-center opacity-100 drop-shadow-[0_34px_66px_rgba(45,212,191,0.30)] saturate-105 contrast-105" />
       </div>
     </section>
 
@@ -156,10 +183,11 @@
 
     <section id="projects" class="max-w-6xl mx-auto px-4 py-14 mb-16">
       <h2 class="font-display text-3xl md:text-4xl mb-8">Project Portfolio</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 gap-8">
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="bdm.png" alt="Business Development Manager financial portfolio project" class="h-64 w-full object-cover object-[50%_-36px] scale-[0.89]" />
           <div class="p-6">
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon mb-3">Finance</span>
             <h3 class="font-bold text-2xl mb-2">Business Development Manager</h3>
             <p class="text-slate-300 mb-4">Corporate portfolio for a Business Development Manager in the Financial industry, focused on institutional growth and partnership scaling.</p>
             <a href="https://huzaifahismail.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
@@ -171,6 +199,7 @@
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="pondokdamai.jpg" alt="pondokdamai.my homestay project" class="h-64 w-full object-cover" />
           <div class="p-6">
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon mb-3">Hospitality</span>
             <h3 class="font-bold text-2xl mb-2">Homestay</h3>
             <p class="text-slate-300 mb-4">Premium digital presence for a homestay business, designed for trust and direct booking conversion.</p>
             <a href="https://pondokdamai.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
@@ -182,9 +211,36 @@
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="hijamabybad.jpg" alt="hijamabybad.my health services project" class="h-64 w-full object-cover" />
           <div class="p-6">
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon mb-3">Health</span>
             <h3 class="font-bold text-2xl mb-2">Bekam Sunnah</h3>
             <p class="text-slate-300 mb-4">Health services website with a modern funnel approach for appointment-ready traffic.</p>
             <a href="https://hijamabybad.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+              <span>View Live Site</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+        <article class="glass rounded-3xl overflow-hidden card-hover">
+          <div class="h-64 w-full bg-slate-900 p-12 flex items-center justify-center">
+            <img src="sysnova.png" alt="SysNova AI platform project" class="h-full w-full object-contain" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-snova/20 text-snova mb-3">AI Platform</span>
+            <h3 class="font-bold text-2xl mb-2 accent-text">SysNova</h3>
+            <p class="text-slate-300 mb-4">Advanced AI-Powered SaaS platform designed to streamline digital workflows and creative automation.</p>
+            <a href="https://easysnova.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+              <span>Launch Experience</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+        <article class="glass rounded-3xl overflow-hidden card-hover">
+          <img src="kelibanting.png" alt="Ikan Keli aquaculture digital transformation project" class="h-64 w-full object-cover" />
+          <div class="p-6">
+            <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal mb-3">Agro-Tech</span>
+            <h3 class="font-bold text-2xl mb-2">Catfish Farm</h3>
+            <p class="text-slate-300 mb-4">Digital storefront for a premier catfish farm in Banting, featuring an 'Ocean Fresh' aesthetic and automated WhatsApp ordering for direct consumer sales.</p>
+            <a href="https://ikankelibanting.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
               <span>View Live Site</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
