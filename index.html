@@ -476,7 +476,7 @@
           <strong>Kafra AI</strong>
           <p>Web2-Web3 intelligent automation bridge.</p>
         </a>
-        <a href="https://richjokey.vercel.app/" target="_blank" rel="noopener noreferrer" class="exploder-node node-royal" data-x="300" data-y="-235">
+        <a href="https://richjokey.ezos.my/" target="_blank" rel="noopener noreferrer" class="exploder-node node-royal" data-x="300" data-y="-235">
           <span class="node-top text-royal"><i data-lucide="radar"></i>Trading Tech</span>
           <strong>Rich Jokey Indi</strong>
           <p>Premium indicator signal concept suite.</p>
@@ -788,7 +788,7 @@
             </div>
             <h3 class="font-bold text-2xl mb-2">Rich Jokey Indi</h3>
             <p class="text-slate-300 mb-4">A premium market analysis indicator concept focused on cleaner signal confirmation, sharper setup visibility, and disciplined decision flow for active traders in fast-moving markets.</p>
-            <a href="https://richjokey.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
+            <a href="https://richjokey.ezos.my/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>Launch Experience</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -874,10 +874,11 @@
 
       const startRotation = () => {
         if (rotateTimer) return;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         rotateTimer = setInterval(() => {
           rotateStep = (rotateStep + 1) % nodes.length;
           applyRotatedTargets(rotateStep);
-        }, 4200);
+        }, isMobile ? 1700 : 2100);
       };
 
       const stopRotation = () => {
@@ -889,8 +890,9 @@
 
       const startMotion = () => {
         if (motionTimer) return;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         startAmbientMotion();
-        motionTimer = setInterval(startAmbientMotion, 2600);
+        motionTimer = setInterval(startAmbientMotion, isMobile ? 900 : 1200);
       };
 
       const stopMotion = () => {
