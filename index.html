@@ -160,9 +160,9 @@
     }
     @media (max-width: 768px) {
       .exploder-node {
-        width: 6.2rem;
-        padding: 0.36rem 0.44rem;
-        border-radius: 0.66rem;
+        width: 5.8rem;
+        padding: 0.32rem 0.4rem;
+        border-radius: 0.62rem;
       }
       .exploder-node .node-top {
         font-size: 0.4rem;
@@ -185,7 +185,7 @@
       .exploder-node p { display: none; }
       .exploder-node::before { top: 0.28rem; right: 0.28rem; width: 0.22rem; height: 0.22rem; }
       .hero-profile-wrap {
-        min-height: 560px;
+        min-height: 580px;
       }
       .hero-profile-wrap img {
         height: 440px;
@@ -676,17 +676,17 @@
       let motionTimer = null;
       let baseTargets = [];
       const mobileLayout = [
-        { x: -104, y: 140 },  // Sarjan Signal (Fintech)
-        { x: -144, y: -28 },  // EZ Meta (Ecosystem)
-        { x: -96, y: 66 },    // SysNova (AI SaaS)
-        { x: 104, y: 140 },   // Ikan Keli (Agro)
-        { x: 94, y: -28 },    // BDM (Finance)
-        { x: 72, y: 66 },     // Pondok (Hospitality)
-        { x: -160, y: 44 },   // EZ Digital (Digital)
-        { x: 0, y: -142 },    // EZ Web (Web)
-        { x: 160, y: 44 },    // EZ Audit (Audit)
-        { x: -120, y: -94 },  // Kafra (AI Platform)
-        { x: 120, y: -94 },   // Rich Jokey (Trading Tech)
+        { x: -92, y: 64 },     // Fintech
+        { x: 120, y: 154 },    // Ecosystem
+        { x: 132, y: -34 },    // AI SaaS
+        { x: 82, y: 74 },      // Agro
+        { x: -156, y: 32 },    // Finance
+        { x: 0, y: -212 },     // Hospitality (top center raised)
+        { x: 168, y: 28 },     // Digital
+        { x: -116, y: -164 },  // Web (raised)
+        { x: 110, y: -156 },   // Audit (raised)
+        { x: -102, y: 144 },   // AI Platform
+        { x: -150, y: -44 },   // Trading Tech
       ];
 
       const updateBaseTargets = () => {
@@ -714,7 +714,7 @@
 
       const startAmbientMotion = () => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        const range = isMobile ? 4 : 12;
+        const range = isMobile ? 2 : 12;
         nodes.forEach((node) => {
           const nx = (Math.random() * (range * 2) - range).toFixed(1);
           const ny = (Math.random() * (range * 2) - range).toFixed(1);
