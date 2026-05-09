@@ -118,8 +118,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      margin-bottom: 0.58rem;
-      font-size: 0.72rem;
+      margin-bottom: 0;
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.03em;
       text-transform: uppercase;
@@ -142,6 +142,11 @@
       line-height: 1.35;
       color: #94a3b8;
     }
+    .exploder-node strong,
+    .exploder-node p,
+    .exploder-node::after {
+      display: none;
+    }
     .exploder-node.node-neon { box-shadow: 0 0 0 1px rgba(45,212,191,0.26), 0 14px 24px rgba(45,212,191,0.16); }
     .exploder-node.node-royal { box-shadow: 0 0 0 1px rgba(59,130,246,0.26), 0 14px 24px rgba(59,130,246,0.16); }
     .exploder-node.node-snova { box-shadow: 0 0 0 1px rgba(168,85,247,0.26), 0 14px 24px rgba(168,85,247,0.16); }
@@ -155,21 +160,36 @@
     }
     @media (max-width: 768px) {
       .exploder-node {
-        width: 9.4rem;
-        padding: 0.55rem 0.68rem;
+        width: 6.2rem;
+        padding: 0.36rem 0.44rem;
+        border-radius: 0.66rem;
       }
-      .exploder-node .node-top { font-size: 0.62rem; }
-      .exploder-node strong { font-size: 0.84rem; }
-      .exploder-node p { font-size: 0.66rem; }
-      .hero-profile-wrap .exploder-node {
-        display: none;
+      .exploder-node .node-top {
+        font-size: 0.4rem;
+        margin-bottom: 0;
+        gap: 0.2rem;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
       }
+      .exploder-node .node-top i,
+      .exploder-node .node-top svg {
+        width: 0.66rem !important;
+        height: 0.66rem !important;
+        stroke-width: 2.2 !important;
+      }
+      .exploder-node strong { font-size: 0.58rem; line-height: 1.1; }
+      .exploder-node p { display: none; }
+      .exploder-node::before { top: 0.28rem; right: 0.28rem; width: 0.22rem; height: 0.22rem; }
       .hero-profile-wrap {
-        min-height: 440px;
+        min-height: 560px;
       }
       .hero-profile-wrap img {
-        height: 420px;
-        transform: translateY(0);
+        height: 440px;
+        transform: translateY(14px);
       }
     }
     .glassy-btn {
@@ -232,6 +252,15 @@
       width: max-content;
       animation: product-scroll 28s linear infinite;
       will-change: transform;
+    }
+    .product-track.tv-track {
+      animation-delay: -2.8s;
+    }
+    .product-track.ea-track {
+      animation-delay: -7.4s;
+    }
+    .product-track.mqli-track {
+      animation-delay: -12.2s;
     }
     .product-marquee:hover .product-track {
       animation-play-state: paused;
@@ -362,7 +391,7 @@
           <p>Operational control & reviews.</p>
         </a>
         <a href="https://kafra.ai/" target="_blank" rel="noopener noreferrer" class="exploder-node node-snova" data-x="-300" data-y="-235">
-          <span class="node-top text-snova"><i data-lucide="cpu"></i>AI Platform</span>
+          <span class="node-top text-snova"><i data-lucide="atom"></i>AI Platform</span>
           <strong>Kafra AI</strong>
           <p>Web2-Web3 intelligent automation bridge.</p>
         </a>
@@ -416,10 +445,10 @@
           <div class="inline-flex items-center justify-center text-royal mb-4">
             <i data-lucide="line-chart" class="w-6 h-6"></i>
           </div>
-          <h3 class="font-bold text-xl mb-2">TradingView Indicators</h3>
-          <p class="text-slate-300 text-sm">Custom Pine Script indicator development for advanced technical analysis and signal optimization.</p>
+          <h3 class="font-bold text-xl mb-2">Pine Script</h3>
+          <p class="text-slate-300 text-sm">Custom Pine Script development for advanced technical analysis and signal optimization.</p>
           <div class="product-marquee product-marquee-bottom text-left">
-            <div class="product-track">
+            <div class="product-track tv-track">
               <span class="product-chip">Kafra Intelligence</span>
               <span class="product-chip">Mr Ghost Indicator</span>
               <span class="product-chip">BPA Indicator</span>
@@ -433,12 +462,12 @@
               <span class="product-chip">Trading Mastery</span>
               <span class="product-chip">AMG Setup</span>
               <span class="product-chip">The XHAKA</span>
+              <span class="product-chip">Magic Trend Mastery</span>
+              <span class="product-chip">Smart Zone Mastery</span>
               <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">Mr Ghost Indicator</span>
-              <span class="product-chip">BPA Indicator</span>
+              <span class="product-chip">Trading Mastery</span>
               <span class="product-chip">Vara Indicator</span>
               <span class="product-chip">Jutsu Indicator</span>
-              <span class="product-chip">Captain Holygrail</span>
             </div>
           </div>
         </article>
@@ -449,7 +478,7 @@
           <h3 class="font-bold text-xl mb-2">MQL Expert Advisors</h3>
           <p class="text-slate-300 text-sm">Fully automated MQL5 trading robots with robust strategy logic, risk controls, and execution automation for live dashboard operations.</p>
           <div class="product-marquee product-marquee-bottom text-left">
-            <div class="product-track">
+            <div class="product-track ea-track">
               <span class="product-chip">Kafra Intelligence</span>
               <span class="product-chip">EA Money Machine</span>
               <span class="product-chip">EA King Dow Jones</span>
@@ -476,19 +505,19 @@
           <h3 class="font-bold text-xl mb-2">MQL Indicator</h3>
           <p class="text-slate-300 text-sm">Precision MQL5 indicators engineered for trading dashboards, cleaner signal mapping, and sharper decision support.</p>
           <div class="product-marquee product-marquee-bottom text-left">
-            <div class="product-track">
-              <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">Mr Ghost Indicator</span>
-              <span class="product-chip">BPA Indicator</span>
-              <span class="product-chip">Vara Indicator</span>
+            <div class="product-track mqli-track">
               <span class="product-chip">HANZ Indicator</span>
               <span class="product-chip">M.A.R.S Indicator</span>
               <span class="product-chip">Kafra Intelligence</span>
               <span class="product-chip">Mr Ghost Indicator</span>
-              <span class="product-chip">BPA Indicator</span>
               <span class="product-chip">Vara Indicator</span>
+              <span class="product-chip">BPA Indicator</span>
+              <span class="product-chip">Kafra Intelligence</span>
               <span class="product-chip">HANZ Indicator</span>
               <span class="product-chip">M.A.R.S Indicator</span>
+              <span class="product-chip">Mr Ghost Indicator</span>
+              <span class="product-chip">BPA Indicator</span>
+              <span class="product-chip">Vara Indicator</span>
             </div>
           </div>
         </article>
@@ -496,21 +525,21 @@
       <a href="https://wa.me/60172502027" class="inline-block mt-8 px-6 py-2 rounded-full bg-white text-black font-extrabold tracking-wide text-sm uppercase">Discuss Trading Project</a>
     </section>
 
-    <section id="projects" class="max-w-6xl mx-auto px-4 py-14 mb-16">
+    <section id="projects" class="max-w-6xl mx-auto px-4 py-14 mb-16 text-center">
       <h2 class="font-display text-3xl md:text-4xl mb-8">Project Portfolio</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <div class="h-64 w-full bg-slate-900 p-2 md:p-3 flex items-center justify-center">
             <img src="bdm.png" alt="Business Development Manager financial portfolio project" class="h-full w-full object-cover object-[50%_8%] md:object-[50%_12%] scale-[1.12] md:scale-110" />
           </div>
-          <div class="p-6">
-            <div class="flex flex-wrap gap-2 mb-3">
+          <div class="p-6 text-center">
+            <div class="flex flex-wrap justify-center gap-2 mb-3">
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon">Finance</span>
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal">Networking</span>
             </div>
             <h3 class="font-bold text-2xl mb-2">Business Development Manager</h3>
             <p class="text-slate-300 mb-4">Corporate portfolio for a Business Development Manager in the Financial industry, focused on institutional growth and partnership scaling.</p>
-            <a href="https://huzaifahismail.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://huzaifahismail.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>View Live Site</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -518,11 +547,11 @@
         </article>
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="pondokdamai.jpg" alt="pondokdamai.my homestay project" class="h-64 w-full object-cover" />
-          <div class="p-6">
+          <div class="p-6 text-center">
             <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon mb-3">Hospitality</span>
             <h3 class="font-bold text-2xl mb-2">Homestay</h3>
             <p class="text-slate-300 mb-4">Premium digital presence for a homestay business, designed for trust and direct booking conversion.</p>
-            <a href="https://pondokdamai.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://pondokdamai.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>View Live Site</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -530,11 +559,11 @@
         </article>
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="hijamabybad.jpg" alt="hijamabybad.my health services project" class="h-64 w-full object-cover" />
-          <div class="p-6">
+          <div class="p-6 text-center">
             <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-neon/20 text-neon mb-3">Health</span>
             <h3 class="font-bold text-2xl mb-2">Bekam Sunnah</h3>
             <p class="text-slate-300 mb-4">Health services website with a modern funnel approach for appointment-ready traffic.</p>
-            <a href="https://hijamabybad.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://hijamabybad.my" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>View Live Site</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -544,11 +573,11 @@
           <div class="h-64 w-full bg-slate-900 p-6 flex items-center justify-center">
             <img src="sysnova.png" alt="SysNova AI platform project" class="h-full w-full object-contain" />
           </div>
-          <div class="p-6">
+          <div class="p-6 text-center">
             <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-snova/20 text-snova mb-3">AI Platform</span>
             <h3 class="font-bold text-2xl mb-2 accent-text">SysNova</h3>
             <p class="text-slate-300 mb-4">Advanced AI-Powered SaaS platform designed to streamline digital workflows and creative automation.</p>
-            <a href="https://easysnova.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://easysnova.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>Launch Experience</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -556,11 +585,11 @@
         </article>
         <article class="glass rounded-3xl overflow-hidden card-hover">
           <img src="kelibanting.png" alt="Ikan Keli aquaculture digital transformation project" class="h-64 w-full object-cover" />
-          <div class="p-6">
+          <div class="p-6 text-center">
             <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal mb-3">Agro-Tech</span>
             <h3 class="font-bold text-2xl mb-2">Catfish Farm</h3>
             <p class="text-slate-300 mb-4">Digital storefront for a premier catfish farm in Banting, featuring an 'Ocean Fresh' aesthetic and automated WhatsApp ordering for direct consumer sales.</p>
-            <a href="https://ikankelibanting.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://ikankelibanting.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>View Live Site</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -570,14 +599,14 @@
           <div class="h-64 w-full bg-slate-900 p-6 flex items-center justify-center">
             <img src="sarjansignal.png" alt="Sarjan Signal fintech security authentication dashboard project" class="h-full w-full object-contain" />
           </div>
-          <div class="p-6">
-            <div class="flex flex-wrap gap-2 mb-3">
+          <div class="p-6 text-center">
+            <div class="flex flex-wrap justify-center gap-2 mb-3">
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal">Fintech</span>
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-700/50 text-slate-200">Security Auth</span>
             </div>
             <h3 class="font-bold text-2xl mb-2">Sarjan Signal</h3>
             <p class="text-slate-300 mb-4">A secure live market dashboard with custom access-key login, device lock, and single-session control. Includes an Admin CRM for agent link creation and user tracking, plus a client dashboard with four display modes.</p>
-            <a href="https://sarjansignal.ezos.my/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://sarjansignal.ezos.my/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>Launch Experience</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -587,14 +616,14 @@
           <div class="h-64 w-full bg-slate-900 p-6 flex items-center justify-center">
             <img src="kafra-ai.png" alt="Kafra AI hybrid Web2 and Web3 automation platform project" class="h-full w-full object-contain" />
           </div>
-          <div class="p-6">
-            <div class="flex flex-wrap gap-2 mb-3">
+          <div class="p-6 text-center">
+            <div class="flex flex-wrap justify-center gap-2 mb-3">
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-snova/20 text-snova">AI Platform</span>
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal">Web2 + Web3</span>
             </div>
             <h3 class="font-bold text-2xl mb-2">Kafra AI</h3>
             <p class="text-slate-300 mb-4">An intelligent automation platform bridging Web2 and Web3 for hybrid portfolio operations. It streamlines workflows, automates trading execution, and deploys AI agents for continuous, high-efficiency market tasks.</p>
-            <a href="https://kafra.ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://kafra.ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>Launch Experience</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -604,14 +633,14 @@
           <div class="h-64 w-full bg-slate-900 p-6 flex items-center justify-center">
             <img src="richjokey.png" alt="Rich Jokey Indi trading indicator ecosystem project" class="h-full w-full object-contain" />
           </div>
-          <div class="p-6">
-            <div class="flex flex-wrap gap-2 mb-3">
+          <div class="p-6 text-center">
+            <div class="flex flex-wrap justify-center gap-2 mb-3">
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-royal/20 text-royal">Trading Tech</span>
               <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-700/50 text-slate-200">Indicator Suite</span>
             </div>
             <h3 class="font-bold text-2xl mb-2">Rich Jokey Indi</h3>
             <p class="text-slate-300 mb-4">A premium market analysis indicator concept focused on cleaner signal confirmation, sharper setup visibility, and disciplined decision flow for active traders in fast-moving markets.</p>
-            <a href="https://richjokey.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-neon">
+            <a href="https://richjokey.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-neon">
               <span>Launch Experience</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
@@ -622,9 +651,9 @@
   </main>
 
   <footer class="border-t border-white/10 py-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <p class="text-slate-400 text-sm">© 2026 Huzaifah Faruqi. Fintech Vibe Coder.</p>
-      <a href="https://wa.me/60172502027" class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white text-black font-extrabold tracking-wide text-sm uppercase hover:scale-105 transition-transform">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center text-center md:flex-row gap-3 md:items-center md:justify-between md:text-left">
+      <p class="text-slate-400 text-sm w-full md:w-auto">© 2026 Huzaifah Faruqi. Fintech Vibe Coder.</p>
+      <a href="https://wa.me/60172502027" class="inline-flex justify-center items-center gap-2 px-6 py-2 rounded-full bg-white text-black font-extrabold tracking-wide text-sm uppercase hover:scale-105 transition-transform w-full md:w-auto">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-4 h-4 fill-current" aria-hidden="true">
           <path d="M19.11 17.19c-.28-.14-1.65-.82-1.91-.91-.25-.09-.43-.14-.62.14-.18.28-.71.91-.87 1.1-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.35.99 2.66 1.13 2.85.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.32-.07-.09-.25-.14-.53-.28z"/>
           <path d="M16.01 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.72 6.39L3 29l6.79-1.88a12.8 12.8 0 0 0 6.22 1.6h.01c7.07 0 12.8-5.73 12.8-12.8 0-3.43-1.34-6.66-3.77-9.08A12.72 12.72 0 0 0 16 3.2zm0 23.34h-.01a10.5 10.5 0 0 1-5.35-1.47l-.38-.22-4.03 1.12 1.08-3.93-.25-.41a10.52 10.52 0 1 1 8.94 4.91z"/>
@@ -646,13 +675,29 @@
       let rotateTimer = null;
       let motionTimer = null;
       let baseTargets = [];
+      const mobileLayout = [
+        { x: -104, y: 140 },  // Sarjan Signal (Fintech)
+        { x: -144, y: -28 },  // EZ Meta (Ecosystem)
+        { x: -96, y: 66 },    // SysNova (AI SaaS)
+        { x: 104, y: 140 },   // Ikan Keli (Agro)
+        { x: 94, y: -28 },    // BDM (Finance)
+        { x: 72, y: 66 },     // Pondok (Hospitality)
+        { x: -160, y: 44 },   // EZ Digital (Digital)
+        { x: 0, y: -142 },    // EZ Web (Web)
+        { x: 160, y: 44 },    // EZ Audit (Audit)
+        { x: -120, y: -94 },  // Kafra (AI Platform)
+        { x: 120, y: -94 },   // Rich Jokey (Trading Tech)
+      ];
 
       const updateBaseTargets = () => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        const distanceFactor = isMobile ? 0.54 : 1;
+        if (isMobile) {
+          baseTargets = Array.from(nodes).map((_, index) => mobileLayout[index] || { x: 0, y: 0 });
+          return;
+        }
         baseTargets = Array.from(nodes).map((node) => ({
-          x: Number(node.dataset.x || 0) * distanceFactor,
-          y: Number(node.dataset.y || 0) * distanceFactor,
+          x: Number(node.dataset.x || 0),
+          y: Number(node.dataset.y || 0),
         }));
       };
 
@@ -669,7 +714,7 @@
 
       const startAmbientMotion = () => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        const range = isMobile ? 6 : 12;
+        const range = isMobile ? 4 : 12;
         nodes.forEach((node) => {
           const nx = (Math.random() * (range * 2) - range).toFixed(1);
           const ny = (Math.random() * (range * 2) - range).toFixed(1);
