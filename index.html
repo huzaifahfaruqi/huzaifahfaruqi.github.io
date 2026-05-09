@@ -286,6 +286,77 @@
     .product-track {
       min-width: 0;
     }
+    .tech-section {
+      position: relative;
+    }
+    .tech-marquee {
+      position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .tech-track {
+      display: inline-flex;
+      gap: 0.85rem;
+      white-space: nowrap;
+      width: max-content;
+      animation: tech-scroll-left 30s linear infinite;
+      will-change: transform;
+    }
+    .tech-track-right {
+      animation-name: tech-scroll-right;
+      animation-duration: 32s;
+    }
+    .tech-marquee:hover .tech-track {
+      animation-play-state: paused;
+    }
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(10px);
+      color: #e2e8f0;
+      padding: 0.5rem 0.82rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .tech-pill i {
+      width: 0.9rem;
+      height: 0.9rem;
+      color: #2dd4bf;
+    }
+    .tech-pill .icon-github {
+      width: 0.9rem;
+      height: 0.9rem;
+      fill: #2dd4bf;
+      flex: 0 0 auto;
+    }
+    .pair-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 999px;
+      padding: 0.45rem 0.78rem;
+      border: 1px solid rgba(59,130,246,0.32);
+      background: rgba(15, 23, 42, 0.5);
+      color: #cbd5e1;
+      font-size: 0.8rem;
+    }
+    .pair-chip i {
+      width: 0.85rem;
+      height: 0.85rem;
+      color: #3b82f6;
+    }
+    @keyframes tech-scroll-left {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes tech-scroll-right {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
     @media (max-width: 768px) {
       html, body {
         overflow-x: clip;
@@ -307,6 +378,16 @@
       }
       .product-track {
         animation-duration: 34s;
+      }
+      .tech-track {
+        animation-duration: 26s;
+      }
+      .tech-track-right {
+        animation-duration: 28s;
+      }
+      .tech-pill {
+        font-size: 0.74rem;
+        padding: 0.42rem 0.68rem;
       }
       .product-chip {
         font-size: 0.72rem;
@@ -406,7 +487,74 @@
       </div>
     </section>
 
-    <section id="ecosystem" class="max-w-6xl mx-auto px-4 py-14 mt-8 md:mt-14 text-center">
+    <section id="tools" class="tech-section max-w-6xl mx-auto px-4 py-14 pb-8 md:pb-10 mt-8 md:mt-14 text-center">
+      <h2 class="font-display text-3xl md:text-4xl mb-3">Tools & Platforms</h2>
+      <p class="text-slate-300 mb-7">My core stack for building, automating, and scaling digital systems.</p>
+
+      <div class="glass rounded-3xl p-5 md:p-6 space-y-5">
+        <div class="tech-marquee">
+          <div class="tech-track">
+            <span class="tech-pill"><i data-lucide="line-chart"></i>TradingView</span>
+            <span class="tech-pill"><i data-lucide="candlestick-chart"></i>MetaTrader 4</span>
+            <span class="tech-pill"><i data-lucide="candlestick-chart"></i>MetaTrader 5</span>
+            <span class="tech-pill">
+              <svg class="icon-github" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.1-.74.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.31.76-1.61-2.67-.3-5.48-1.33-5.48-5.94 0-1.31.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.45 11.45 0 0 1 6 0c2.28-1.56 3.29-1.24 3.29-1.24.66 1.65.25 2.87.12 3.17.77.85 1.23 1.93 1.23 3.24 0 4.62-2.81 5.64-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/>
+              </svg>
+              GitHub
+            </span>
+            <span class="tech-pill"><i data-lucide="cloud"></i>Cloudflare</span>
+            <span class="tech-pill"><i data-lucide="bar-chart-3"></i>Google Analytics</span>
+            <span class="tech-pill"><i data-lucide="megaphone"></i>Meta Pixel</span>
+            <span class="tech-pill"><i data-lucide="notebook-pen"></i>Notion</span>
+            <span class="tech-pill"><i data-lucide="line-chart"></i>TradingView</span>
+            <span class="tech-pill"><i data-lucide="candlestick-chart"></i>MetaTrader 4</span>
+            <span class="tech-pill"><i data-lucide="candlestick-chart"></i>MetaTrader 5</span>
+            <span class="tech-pill">
+              <svg class="icon-github" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.1-.74.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.31.76-1.61-2.67-.3-5.48-1.33-5.48-5.94 0-1.31.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.45 11.45 0 0 1 6 0c2.28-1.56 3.29-1.24 3.29-1.24.66 1.65.25 2.87.12 3.17.77.85 1.23 1.93 1.23 3.24 0 4.62-2.81 5.64-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/>
+              </svg>
+              GitHub
+            </span>
+            <span class="tech-pill"><i data-lucide="cloud"></i>Cloudflare</span>
+            <span class="tech-pill"><i data-lucide="bar-chart-3"></i>Google Analytics</span>
+            <span class="tech-pill"><i data-lucide="megaphone"></i>Meta Pixel</span>
+            <span class="tech-pill"><i data-lucide="notebook-pen"></i>Notion</span>
+          </div>
+        </div>
+
+        <div class="tech-marquee">
+          <div class="tech-track tech-track-right">
+            <span class="tech-pill"><i data-lucide="activity"></i>Pine Script</span>
+            <span class="tech-pill"><i data-lucide="binary"></i>MQL4</span>
+            <span class="tech-pill"><i data-lucide="binary"></i>MQL5</span>
+            <span class="tech-pill"><i data-lucide="file-code-2"></i>Python</span>
+            <span class="tech-pill"><i data-lucide="cpu"></i>C++</span>
+            <span class="tech-pill"><i data-lucide="cpu"></i>C#</span>
+            <span class="tech-pill"><i data-lucide="braces"></i>Node.js</span>
+            <span class="tech-pill"><i data-lucide="database"></i>MySQL</span>
+            <span class="tech-pill"><i data-lucide="database-zap"></i>Supabase</span>
+            <span class="tech-pill"><i data-lucide="credit-card"></i>Stripe</span>
+            <span class="tech-pill"><i data-lucide="container"></i>Docker</span>
+            <span class="tech-pill"><i data-lucide="terminal-square"></i>Linux</span>
+            <span class="tech-pill"><i data-lucide="activity"></i>Pine Script</span>
+            <span class="tech-pill"><i data-lucide="binary"></i>MQL4</span>
+            <span class="tech-pill"><i data-lucide="binary"></i>MQL5</span>
+            <span class="tech-pill"><i data-lucide="file-code-2"></i>Python</span>
+            <span class="tech-pill"><i data-lucide="cpu"></i>C++</span>
+            <span class="tech-pill"><i data-lucide="cpu"></i>C#</span>
+            <span class="tech-pill"><i data-lucide="braces"></i>Node.js</span>
+            <span class="tech-pill"><i data-lucide="database"></i>MySQL</span>
+            <span class="tech-pill"><i data-lucide="database-zap"></i>Supabase</span>
+            <span class="tech-pill"><i data-lucide="credit-card"></i>Stripe</span>
+            <span class="tech-pill"><i data-lucide="container"></i>Docker</span>
+            <span class="tech-pill"><i data-lucide="terminal-square"></i>Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="max-w-6xl mx-auto px-4 py-14 mt-2 md:mt-4 text-center">
       <h2 class="font-display text-3xl md:text-4xl mb-3">EZ Ecosystem Showcase</h2>
       <p class="text-slate-300 mb-8">Integrated funnel for digital business expansion:</p>
       <p class="accent-text font-semibold mb-8">Buy Digital Product -> Build with EZ Web -> Market with EZ Meta -> Audit with EZ Audit</p>
@@ -648,6 +796,7 @@
         </article>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-white/10 py-8">
