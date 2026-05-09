@@ -39,6 +39,11 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       background: radial-gradient(circle at 20% 0%, rgba(45, 212, 191, 0.13), transparent 40%),
                   radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.16), transparent 35%),
@@ -156,6 +161,16 @@
       .exploder-node .node-top { font-size: 0.62rem; }
       .exploder-node strong { font-size: 0.84rem; }
       .exploder-node p { font-size: 0.66rem; }
+      .hero-profile-wrap .exploder-node {
+        display: none;
+      }
+      .hero-profile-wrap {
+        min-height: 440px;
+      }
+      .hero-profile-wrap img {
+        height: 420px;
+        transform: translateY(0);
+      }
     }
     .glassy-btn {
       position: relative;
@@ -184,25 +199,26 @@
       border-color: rgba(45,212,191,0.38);
     }
     .product-chip {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(15,23,42,0.42);
+      border: 1px solid rgba(59,130,246,0.35);
+      background: rgba(30,41,59,0.58);
       backdrop-filter: blur(10px);
       border-radius: 999px;
       padding: 0.45rem 0.85rem;
       font-size: 0.8rem;
       line-height: 1.2;
-      color: #e2e8f0;
+      color: #dbeafe;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
     }
     .product-chip::before {
       content: "";
       width: 0.42rem;
       height: 0.42rem;
       border-radius: 999px;
-      background: rgba(45,212,191,0.9);
-      box-shadow: 0 0 10px rgba(45,212,191,0.5);
+      background: rgba(59,130,246,0.95);
+      box-shadow: 0 0 10px rgba(59,130,246,0.5);
     }
     .product-marquee {
       position: relative;
@@ -213,6 +229,7 @@
       display: inline-flex;
       gap: 0.6rem;
       white-space: nowrap;
+      width: max-content;
       animation: product-scroll 28s linear infinite;
       will-change: transform;
     }
@@ -222,6 +239,55 @@
     @keyframes product-scroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
+    }
+    .trading-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .product-marquee-bottom {
+      margin-top: 0.75rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid rgba(59,130,246,0.16);
+    }
+    .product-marquee,
+    .product-marquee-bottom,
+    .product-track {
+      min-width: 0;
+    }
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: clip;
+      }
+      main, section {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      #trading .trading-card {
+        max-width: 100%;
+        width: 100%;
+        min-height: 0;
+      }
+      .product-marquee {
+        width: 100%;
+        max-width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        overflow: hidden;
+      }
+      .product-track {
+        animation-duration: 34s;
+      }
+      .product-chip {
+        font-size: 0.72rem;
+        padding: 0.36rem 0.68rem;
+      }
+      .card-hover:hover,
+      .hero-profile-wrap:hover,
+      .glassy-btn:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -316,26 +382,26 @@
       <p class="text-slate-300 mb-8">Integrated funnel for digital business expansion:</p>
       <p class="accent-text font-semibold mb-8">Buy Digital Product -> Build with EZ Web -> Market with EZ Meta -> Audit with EZ Audit</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="shopping-bag" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-6 card-hover text-center">
+          <i data-lucide="shopping-bag" class="w-6 h-6 text-neon mb-4 mx-auto block"></i>
           <h3 class="font-bold text-xl mb-2">EZ Digital</h3>
           <p class="text-slate-300 text-sm mb-5">Premium digital products to accelerate launch speed and value delivery.</p>
           <a href="https://wa.me/60172502027" class="text-neon text-sm">Get Started</a>
         </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="code-2" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-6 card-hover text-center">
+          <i data-lucide="code-2" class="w-6 h-6 text-neon mb-4 mx-auto block"></i>
           <h3 class="font-bold text-xl mb-2">EZ Web</h3>
           <p class="text-slate-300 text-sm mb-5">Modern web builds optimized for conversion, performance, and scale.</p>
           <a href="https://wa.me/60172502027" class="text-neon text-sm">Build Now</a>
         </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="megaphone" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-6 card-hover text-center">
+          <i data-lucide="megaphone" class="w-6 h-6 text-neon mb-4 mx-auto block"></i>
           <h3 class="font-bold text-xl mb-2">EZ Meta</h3>
           <p class="text-slate-300 text-sm mb-5">Strategic marketing systems for lead generation and audience growth.</p>
           <a href="https://wa.me/60172502027" class="text-neon text-sm">Scale Reach</a>
         </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="shield-check" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-6 card-hover text-center">
+          <i data-lucide="shield-check" class="w-6 h-6 text-neon mb-4 mx-auto block"></i>
           <h3 class="font-bold text-xl mb-2">EZ Audit</h3>
           <p class="text-slate-300 text-sm mb-5">Performance, compliance, and workflow audits to protect profitability.</p>
           <a href="https://wa.me/60172502027" class="text-neon text-sm">Audit My System</a>
@@ -345,92 +411,71 @@
 
     <section id="trading" class="max-w-6xl mx-auto px-4 py-14 text-center">
       <h2 class="font-display text-3xl md:text-4xl mb-8">Algorithmic Trading Solutions</h2>
-      <div class="grid md:grid-cols-3 gap-5">
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="line-chart" class="w-6 h-6 text-neon mb-4"></i>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="glass rounded-2xl p-7 card-hover trading-card text-center">
+          <div class="inline-flex items-center justify-center text-royal mb-4">
+            <i data-lucide="line-chart" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-xl mb-2">TradingView Indicators</h3>
           <p class="text-slate-300 text-sm">Custom Pine Script indicator development for advanced technical analysis and signal optimization.</p>
+          <div class="product-marquee product-marquee-bottom text-left">
+            <div class="product-track">
+              <span class="product-chip">Kafra Intelligence</span>
+              <span class="product-chip">Mr Ghost Indicator</span>
+              <span class="product-chip">BPA Indicator</span>
+              <span class="product-chip">Vara Indicator</span>
+              <span class="product-chip">Jutsu Indicator</span>
+              <span class="product-chip">Captain Holygrail</span>
+              <span class="product-chip">HANZ Indicator</span>
+              <span class="product-chip">M.A.R.S Indicator</span>
+              <span class="product-chip">Magic Trend Mastery</span>
+              <span class="product-chip">Smart Zone Mastery</span>
+              <span class="product-chip">Trading Mastery</span>
+              <span class="product-chip">AMG Setup</span>
+              <span class="product-chip">The XHAKA</span>
+              <span class="product-chip">Kafra Intelligence</span>
+              <span class="product-chip">Mr Ghost Indicator</span>
+              <span class="product-chip">BPA Indicator</span>
+              <span class="product-chip">Vara Indicator</span>
+              <span class="product-chip">Jutsu Indicator</span>
+              <span class="product-chip">Captain Holygrail</span>
+            </div>
+          </div>
         </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="bot" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-7 card-hover trading-card text-center">
+          <div class="inline-flex items-center justify-center text-royal mb-4">
+            <i data-lucide="bot" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-xl mb-2">MQL Expert Advisors</h3>
           <p class="text-slate-300 text-sm">Fully automated MQL5 trading robots with robust strategy logic, risk controls, and execution automation for live dashboard operations.</p>
+          <div class="product-marquee product-marquee-bottom text-left">
+            <div class="product-track">
+              <span class="product-chip">Kafra Intelligence</span>
+              <span class="product-chip">EA Money Machine</span>
+              <span class="product-chip">EA King Dow Jones</span>
+              <span class="product-chip">EA Ular Sawa</span>
+              <span class="product-chip">EA NexTera</span>
+              <span class="product-chip">AntMan</span>
+              <span class="product-chip">Apex AI</span>
+              <span class="product-chip">NexTera</span>
+              <span class="product-chip">Kafra Intelligence</span>
+              <span class="product-chip">EA Money Machine</span>
+              <span class="product-chip">EA King Dow Jones</span>
+              <span class="product-chip">EA Ular Sawa</span>
+              <span class="product-chip">EA NexTera</span>
+              <span class="product-chip">AntMan</span>
+              <span class="product-chip">Apex AI</span>
+              <span class="product-chip">NexTera</span>
+            </div>
+          </div>
         </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <i data-lucide="candlestick-chart" class="w-6 h-6 text-neon mb-4"></i>
+        <article class="glass rounded-2xl p-7 card-hover trading-card text-center">
+          <div class="inline-flex items-center justify-center text-royal mb-4">
+            <i data-lucide="candlestick-chart" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-xl mb-2">MQL Indicator</h3>
           <p class="text-slate-300 text-sm">Precision MQL5 indicators engineered for trading dashboards, cleaner signal mapping, and sharper decision support.</p>
-        </article>
-      </div>
-      <div class="mt-12 grid md:grid-cols-3 gap-6 text-left">
-        <article class="glass rounded-2xl p-6 card-hover">
-          <div class="inline-flex items-center gap-2 mb-4 text-royal font-semibold text-sm uppercase tracking-wide">
-            <i data-lucide="line-chart" class="w-4 h-4"></i>
-            Pine Script
-          </div>
-          <div class="product-marquee">
-            <div class="product-track">
-              <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">Mr Ghost Indicator</span>
-              <span class="product-chip">BPA Indicator</span>
-              <span class="product-chip">Vara Indicator</span>
-              <span class="product-chip">Jutsu Indicator</span>
-              <span class="product-chip">Captain Holygrail</span>
-              <span class="product-chip">HANZ Indicator</span>
-              <span class="product-chip">M.A.R.S Indicator</span>
-              <span class="product-chip">Magic Trend Mastery</span>
-              <span class="product-chip">Smart Zone Mastery</span>
-              <span class="product-chip">Trading Mastery</span>
-              <span class="product-chip">AMG Setup</span>
-              <span class="product-chip">The XHAKA</span>
-              <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">Mr Ghost Indicator</span>
-              <span class="product-chip">BPA Indicator</span>
-              <span class="product-chip">Vara Indicator</span>
-              <span class="product-chip">Jutsu Indicator</span>
-              <span class="product-chip">Captain Holygrail</span>
-              <span class="product-chip">HANZ Indicator</span>
-              <span class="product-chip">M.A.R.S Indicator</span>
-              <span class="product-chip">Magic Trend Mastery</span>
-              <span class="product-chip">Smart Zone Mastery</span>
-              <span class="product-chip">Trading Mastery</span>
-              <span class="product-chip">AMG Setup</span>
-              <span class="product-chip">The XHAKA</span>
-            </div>
-          </div>
-        </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <div class="inline-flex items-center gap-2 mb-4 text-royal font-semibold text-sm uppercase tracking-wide">
-            <i data-lucide="bot" class="w-4 h-4"></i>
-            MQL EA
-          </div>
-          <div class="product-marquee">
-            <div class="product-track">
-              <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">EA Money Machine</span>
-              <span class="product-chip">EA King Dow Jones</span>
-              <span class="product-chip">EA Ular Sawa</span>
-              <span class="product-chip">EA NexTera</span>
-              <span class="product-chip">AntMan</span>
-              <span class="product-chip">Apex AI</span>
-              <span class="product-chip">NexTera</span>
-              <span class="product-chip">Kafra Intelligence</span>
-              <span class="product-chip">EA Money Machine</span>
-              <span class="product-chip">EA King Dow Jones</span>
-              <span class="product-chip">EA Ular Sawa</span>
-              <span class="product-chip">EA NexTera</span>
-              <span class="product-chip">AntMan</span>
-              <span class="product-chip">Apex AI</span>
-              <span class="product-chip">NexTera</span>
-            </div>
-          </div>
-        </article>
-        <article class="glass rounded-2xl p-6 card-hover">
-          <div class="inline-flex items-center gap-2 mb-4 text-snova font-semibold text-sm uppercase tracking-wide">
-            <i data-lucide="candlestick-chart" class="w-4 h-4"></i>
-            MQL Indicator
-          </div>
-          <div class="product-marquee">
+          <div class="product-marquee product-marquee-bottom text-left">
             <div class="product-track">
               <span class="product-chip">Kafra Intelligence</span>
               <span class="product-chip">Mr Ghost Indicator</span>
